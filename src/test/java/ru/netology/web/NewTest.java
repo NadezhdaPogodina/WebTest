@@ -11,25 +11,26 @@ public class NewTest {
     private WebDriver driver;
 
     @BeforeAll
-    static void setUpAll(){
+    static void setUpAll() {
         System.setProperty("webdriver.chrome.driver", "./driver/win/chromedriver.exe");
     }
 
 
-     @BeforeEach
+    @BeforeEach
     void setUp() {
-         driver = new ChromeDriver();
+        driver = new ChromeDriver();
 
-     }
-     @AfterEach
+    }
+
+    @AfterEach
     void tearDown() {
-         driver.quit();
-         driver = null;
+        driver.quit();
+        driver = null;
     }
 
     @Test
-    void shouldTestUI(){
+    void shouldTestUI() {
         driver.get("http://localhost:9999/");
-}
+    }
 
 }
