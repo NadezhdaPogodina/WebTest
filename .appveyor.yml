@@ -8,4 +8,4 @@ branches:
 
 build: off  # будем использовать свой скрипт сборки
 install:
-gradlew test -Dselenide.headless=true
+-test
