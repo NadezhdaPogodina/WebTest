@@ -8,4 +8,5 @@ branches:
 
 build: off  # будем использовать свой скрипт сборки
 install:
--test
+
+-test --info
