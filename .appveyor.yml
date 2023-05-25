@@ -18,5 +18,5 @@ install:
   - name: Grant execute permission for gradlew
       
       
-- ./gradlew test
+run: gradlew test
 - gradlew test -Dselenide.headless=true
