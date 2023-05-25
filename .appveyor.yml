@@ -16,7 +16,7 @@ install:
   
   install:
   - ./gradlew build
-- ./gradlew test -Dselenide.headless=true
+run: - ./gradlew test -Dselenide.headless=true
 
 
    
