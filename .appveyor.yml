@@ -12,8 +12,11 @@ install:
   # запускаем SUT (& означает, что в фоновом режиме не блокируем терминал для запуска тестов)
   - java -jar ./artifacts/app-order.jar &
   
+  build_script:
+  - ./gradlew build
+  install:
   
-
+- ./gradlew test -Dselenide.headless=true
 
 
    
