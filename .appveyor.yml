@@ -15,5 +15,8 @@ install:
   
 
 build_script:
-
+  - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+      
+        run: ./gradlew test
  gradlew test -Dselenide.headless=true
