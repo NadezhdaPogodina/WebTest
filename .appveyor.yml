@@ -17,6 +17,5 @@ install:
 
   - name: Grant execute permission for gradlew
       
-      
-run: gradlew test
-./gradlew test -Dselenide.headless=true
+      - test --info  # запускаем тест, флаг --info позволяет выводить больше информации 
+
