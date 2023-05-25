@@ -19,4 +19,4 @@ install:
       
       
 run: gradlew test
-gradlew test -Dselenide.headless=true
+./gradlew test -Dselenide.headless=true
