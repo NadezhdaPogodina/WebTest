@@ -7,9 +7,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 //import java.util.List;
 
@@ -18,10 +19,11 @@ public class NewTest {
 
     @BeforeAll
     static void setUpAll() {
+
         WebDriverManager.chromedriver().setup();
+
+        // System.setProperty("webdriver.chrome.driver", "./driver/win/chromedriver.exe");
     }
-    //System.setProperty("webdriver.chrome.driver", "./driver/win/chromedriver.exe");
-    // }
 
 
     @BeforeEach
@@ -32,8 +34,6 @@ public class NewTest {
         options.addArguments("--headless");
         driver = new ChromeDriver(options);
         driver.get("http://localhost:9999/");
-
-
     }
 
     @AfterEach
@@ -43,14 +43,18 @@ public class NewTest {
     }
 
     @Test
-    void shouldTestVI() throws InterruptedException {
+    void shouldTestVI() {
+
         driver.get("http://localhost:9999/");
-        Thread.sleep(8000);
-       // List<WebElement> inputs = driver.findElements(By.tagName("input"));
-       // inputs.get(0).sendKeys("123");
-       // inputs.get(1).sendKeys("+7999888888");
-        driver.findElement(By.className("checkbox__box")).click();
-        driver.findElement(By.className("button__text")).click();
+        driver.findElement(By.cssSelector("[data-test-id = name] input")).sendKeys("Иванов Иван");
+        driver.findElement(By.cssSelector("[data-test-id = phone] input")).sendKeys("+98734672188");
+        driver.findElement(By.cssSelector("[data-test-id = agreement]")).click();
+        driver.findElement(By.cssSelector("button.button")).click();
+        String expected = "Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.";
+        String actual = driver.findElement(By.cssSelector("[data-test-id = order-success]")).getText().trim();
+        //  //var actualText = driver.findElement(By.cssSelector("[data-test-id = order-success]")).getText().trim;
+        assertEquals(expected, actual);
     }
 
 }
+
